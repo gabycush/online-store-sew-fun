@@ -1,6 +1,7 @@
 
 const express = require('express');
-
+var catalog = require('./routes/catalog'); //Import routes for "catalog" area of site
+var compression = require('compression');
 var router = express.Router();
 var bodyParser = require('body-parser')
 const app = express();
@@ -11,6 +12,14 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+app.use(compression()); //Compress all routes
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', index);
+app.use('/users', users);
+app.use('/catalog', catalog); 
 
 
 //database stuff
@@ -84,7 +93,7 @@ app.post('/newcustomer', function(req, res, next){
               console.log("Error in Transaction Begin " + err);
               dbConn.close();
           });
-           
+
       }).catch(function (err) {
           console.log(err);
           dbConn.close();
@@ -118,4 +127,3 @@ app.post('/login', function(req, res, next){
       console.log(err);
   });
 })
-
