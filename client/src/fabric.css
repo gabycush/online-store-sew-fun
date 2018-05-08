@@ -1,0 +1,9 @@
+
+.item {
+    width: 33%;
+    display:inline-block;
+}
+
+.hidden{
+    display:none;
+}

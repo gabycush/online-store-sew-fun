@@ -7,7 +7,12 @@
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "body-parser": "^1.18.2",
+    "bootstrap": "^4.1.1",
+    "express": "^4.16.2",
+    "mssql": "^3.3.0",
+    "react-modal": "^3.4.4",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "concurrently": "^3.5.0"

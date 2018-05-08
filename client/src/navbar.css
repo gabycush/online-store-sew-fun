@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Pompiere');
+
+
+p.login {
+    font-family: 'Pompiere', cursive;
+    font-size:1.6rem;
+    text-align:right;
+    margin-bottom:-2.5rem;
+}
+
+li {
+    display:inline-block;
+    padding:.5rem 3% 0;
+    font-family: 'Pompiere', cursive;
+    font-size:2rem;
+}
+ul{
+    margin:0;
+    padding:0;
+}

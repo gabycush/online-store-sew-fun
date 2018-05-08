@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
-
-import logo from './logo.svg';
-
+import { Switch, Route } from 'react-router-dom';
+import Navbar from './navbar';
+import Home from './home';
+import Fabric from './fabric';
+import HandCrafts from './hand-crafts';
+import Classes from './classes';
+import SignUp from './signup';
+import LogIn from './login';
 import './App.css';
 
 class App extends Component {
@@ -9,29 +14,21 @@ class App extends Component {
     response: ''
   };
 
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  }
-
-  callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+            <Navbar />
         </header>
-        <p className="App-intro">{this.state.response}</p>
+        <div className="App-body">
+            <Switch>
+              <Route path='/fabric' component={Fabric} />
+              <Route path='/hand-crafts' component={HandCrafts} />
+              <Route path='/signup' component={SignUp} />
+              <Route path='/login' component={LogIn} />
+              <Route render={() => <Home />} />
+            </Switch>
+        </div>
       </div>
     );
   }
